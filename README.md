@@ -1,2 +1,2 @@
-# rbox
-List of custom functions to help my daily work at at Birchbox
+# r-packages
+List of custom-created R packages to help my day-to-day work in R
