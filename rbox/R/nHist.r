@@ -9,6 +9,10 @@
 #' @examples nHist(dataframe)
 #' @examples nHist(dataframe,vwr='dialog')
 #' @examples nHist(dataframe,vwr='browser')
+#' @import ggplot2
+#' @import shiny
+#' @import miniUI
+#' @import dplyr
 #' nHist()
 
 nHist <- function(df,vwr='pane') {
