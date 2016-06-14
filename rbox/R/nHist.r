@@ -82,7 +82,7 @@ DATAFRAME <- df
     
     output$histogram_chart <- shiny::renderPlot({
       data() %>% 
-        dplyr::count(1) %>% 
+        dplyr::count(x_set) %>% 
         dplyr::arrange(dplyr::desc(n)) %>%  
         utils::head(input$top_n_slider) %>% 
         ggplot2::ggplot(aes(x = stats::reorder(x_set, n), y = n)) +
