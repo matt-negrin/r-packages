@@ -4,15 +4,14 @@ Version: 0.0.0.9000
 Authors@R: 'Matt Negrin <matt.negrin@gmail.com> [aut, cre]'
 Description: What the package does (one paragraph).
 Depends:
-    R (>= 3.3.0)
-License: BSD
-Suggests:
+    R (>= 3.3.0),
     utils,
     stats,
     ggplot2,
     dplyr,
     shiny,
     miniUI
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1.9000

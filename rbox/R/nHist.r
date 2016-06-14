@@ -14,10 +14,21 @@
 #' 
 #' @author Matt Negrin
 #' 
+#' @import dplyr utils shiny miniUI ggplot2
+#' @importFrom stats reorder
+#'  
 #' @export
 
 nHist <- function(df,vwr='pane') {
 
+ggplot2<-NULL
+shiny<-NULL
+miniUI<-NULL
+stats<-NULL
+utils<-NULL
+dplyr<-NULL
+x_set<-NULL
+  
 DATAFRAME <- df
     
   if(!base::require(ggplot2)){
@@ -35,21 +46,21 @@ DATAFRAME <- df
     base::library(miniUI)
   }
   
-  if(!base::require(dplyr)){
-    utils::install.packages("dplyr")
-    base::library(dplyr)
-  }
-  
   if(!base::require(stats)){
     utils::install.packages("stats")
     base::library(stats)
+  }
+  
+  if(!base::require(dplyr)){
+    utils::install.packages("dplyr")
+    base::library(dplyr)
   }
   
   if(!base::require(utils)){
     utils::install.packages("utils")
     base::library(utils)
   }
-  
+
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("rbox - Top N Histogram"),
     miniUI::miniContentPanel(
@@ -71,7 +82,7 @@ DATAFRAME <- df
     
     output$histogram_chart <- shiny::renderPlot({
       data() %>% 
-        dplyr::count(x_set) %>% 
+        dplyr::count(1) %>% 
         dplyr::arrange(dplyr::desc(n)) %>%  
         utils::head(input$top_n_slider) %>% 
         ggplot2::ggplot(aes(x = stats::reorder(x_set, n), y = n)) +
