@@ -15,7 +15,7 @@ nHist(df, vwr = "pane")
 An interactive histogram chart
 }
 \description{
-nHIst takes advantage of Shiny Gadgets to make charting basic histograms quick and easy for Birchbox DSAI.
+nHist takes advantage of Shiny Gadgets to make charting basic histograms quick and easy for Birchbox DSAI.
 The only required argument is your data frame. The function will chart an interactive histogram that will let you choose which column you want to chart along with the top 'N' you would like to see in the histogram.
 }
 \details{

@@ -1,6 +1,6 @@
 #' A Histogram Charting Function
 #' 
-#' nHIst takes advantage of Shiny Gadgets to make charting basic histograms quick and easy for Birchbox DSAI.
+#' nHist takes advantage of Shiny Gadgets to make charting basic histograms quick and easy for Birchbox DSAI.
 #' The only required argument is your data frame. The function will chart an interactive histogram that will let you choose which column you want to chart along with the top 'N' you would like to see in the histogram.
 #' 
 #' There is one optional argument to decide how you would like to view the chart. The default is the rstudio pane. The other options include a pop up dialog or browser.
@@ -17,7 +17,9 @@
 #' @export
 
 nHist <- function(df,vwr='pane') {
-  
+
+DATAFRAME <- df
+    
   if(!base::require(ggplot2)){
     utils::install.packages("ggplot2")
     base::library(ggplot2)
@@ -54,7 +56,7 @@ nHist <- function(df,vwr='pane') {
       shiny::plotOutput('histogram_chart'),
       shiny::fluidRow(
         shiny::column(width=3, offset=1,
-               shiny::selectInput('x_choice',label='X Variable',choices=unique(names(df)))),
+               shiny::selectInput('x_choice',label='X Variable',choices=unique(names(DATAFRAME)))),
         shiny::column(width=3, offset=0,
                shiny::sliderInput('top_n_slider',label='Top N',min=1,max=30,value=15))
       )
@@ -63,8 +65,8 @@ nHist <- function(df,vwr='pane') {
   
   server <- function(input, output, session) {
     data <- shiny::reactive({
-      x_spot <- which(names(df)==input$x_choice)
-      dplyr::select(df,x_set=x_spot)
+      x_spot <- which(names(DATAFRAME)==input$x_choice)
+      dplyr::select(DATAFRAME,x_set=x_spot)
     })
     
     output$histogram_chart <- shiny::renderPlot({
