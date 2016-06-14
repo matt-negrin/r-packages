@@ -7,21 +7,23 @@
 nHist(df, vwr = "pane")
 }
 \arguments{
-\item{df}{This is your data frame. It is required. Note: You can chain from dplyr into the chart!}
+\item{df}{Your data frame. It is required. Note: You can chain from dplyr into the chart!}
 
-\item{vwr}{This is an optional argument. Defaults to 'pane'. Other options include 'dialog' and 'browser'}
+\item{vwr}{An optional argument. Defaults to 'pane'. Other options include 'dialog' and 'browser'}
+}
+\value{
+An interactive histogram chart
 }
 \description{
-This function is supposed to make charting basic histograms really quick for Birchbox DSAI-ers.
+nHIst takes advantage of Shiny Gadgets to make charting basic histograms quick and easy for Birchbox DSAI.
 The only required argument is your data frame. The function will chart an interactive histogram that will let you choose which column you want to chart along with the top 'N' you would like to see in the histogram.
+}
+\details{
 There is one optional argument to decide how you would like to view the chart. The default is the rstudio pane. The other options include a pop up dialog or browser.
+
+To close the app, please click "DONE" in the upper right-hand corner!
 }
-\examples{
-nHist(dataframe)
+\author{
+Matt Negrin
 }
-\keyword{charting}
-\keyword{hist}
-\keyword{histogram}
-\keyword{rbox}
-\keyword{topn}
 
