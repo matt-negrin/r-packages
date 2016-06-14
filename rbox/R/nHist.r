@@ -13,7 +13,7 @@
 #' @import shiny
 #' @import miniUI
 #' @import dplyr
-#' nHist()
+#' 
 
 nHist <- function(df,vwr='pane') {
   
